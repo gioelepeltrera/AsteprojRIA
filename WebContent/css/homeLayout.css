@@ -1,0 +1,90 @@
+.leftBanner {
+   height: 100%;
+   width: 10%;
+   position: fixed;
+   z-index: -1;
+   top: 0;
+   left:0;
+   overflow-x: hidden;
+   padding-top: 20px;
+}
+.rightBanner {
+   height: 100%;
+   width: 10%;
+   position: fixed;
+   z-index: -1;
+   top: 0;
+   right: 0;
+   overflow-x: hidden;
+   padding-top: 20px;
+}
+
+ .center.buyDiv{
+   height: 100%;
+   width: 90%;
+   position: fixed;
+   z-index: -1;
+   top: 0;
+   right: 0;
+   overflow-x: hidden;
+   padding-top: 20px;
+}
+
+.center.sellDiv{
+   height: 100%;
+   width: 90%;
+   position: fixed;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   overflow-x: hidden;
+   padding-top: 20px;
+}
+
+ .sellDiv , .rightBanner{
+     display: none;
+ }
+ .buyDiv , .leftBanner{
+     display: flexbox;
+ }
+ .vendoBanner{
+    font-size: 7vw;
+    transform: rotate(-90deg);
+    margin-top: 300px;
+ }
+ .comproBanner{
+    font-size: 7vw;
+    transform: rotate(90deg);
+    margin-top: 300px;
+ }
+
+ .buyTop {
+ 	display: flex;
+ }
+ .buyTop > div {
+ 	width: 50%;
+ }
+   
+.sellLists{
+	width: 94%;
+	margin: auto;
+	border: white;
+	border-style: dashed;
+	max-height: 50%;
+	overflow:auto;
+}
+
+.logoutjs {
+  right: 0;
+  position: absolute;
+  bottom: 0;
+  font-size: 2.5vw;
+  text-decoration: none;
+  color: black;
+}
+.bottomDiv{
+	margin-bottom : 7%;
+}
+.prev, .next , .cancel{
+	margin-left :25%;
+}

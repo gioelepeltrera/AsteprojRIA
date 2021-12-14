@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ASTA PROJECT home</title>
+    <script src="AsteProjManagement.js" charset="utf-8" defer></script>
+    <script src="utils.js" charset="utf-8" defer></script>
+
+    <link rel="stylesheet" type="text/css" media="all" href="css/mystyleT.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/homeLayout.css">
+</head>
+
+<body>
+    <div id="leftBanner" class="leftBanner sell">
+        <p class="vendoBanner">vendo</p>
+    </div>
+
+
+    <div id="buy" class="center buyDiv buy">
+        <h2>Acquisto</h2>
+
+        <div class="buyTop">
+            <div class="search">
+                <p id="searchAlert" class="alert"></p>
+                <form id="searchForm" action="#" method="POST">
+                    <fieldset>
+                        <legend> Ricerca aste aperte </legend>
+                        <div class="formitem">
+                            <label for="keyword">Parola chiave:</label>
+                            <input type="text" name="keyword" required> <br>
+                        </div>
+                        <button class="submit" type="submit" name="submit">cerca aste</button>
+                    </fieldset>
+                </form>
+            </div>
+            <div id="lastViewedlist">
+                <table class="buyTable">
+                    <caption>Ultime aste aperte</caption>
+                    <thead>
+                        <tr>
+                            <th>Nome Articolo</th>
+                            <th>Scadenza</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lastViewedBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="searchListContainer" class="searchList">
+            <table class="buyTable">
+                <caption>Risultato ricerca</caption>
+
+                <thead>
+                    <tr>
+                        <th>Nome Articolo</th>
+                        <th>Offerta massima</th>
+                        <th>giorni rimanenti</th>
+                        <th>ore rimanenti</th>
+                        <th>minuti rimanenti</th>
+                        <th>Scadenza</th>
+                    </tr>
+                </thead>
+                <tbody id="searchListBody">
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="buyAuctionInfo">
+
+
+            <p id="buyAuctionInfoAlert" class="alert"></p>
+            <div id="buyAuctionInfo">
+                <div id="buyInfo">
+                    <table class="dettagliAsta">
+                                     <caption>Dettagli asta</caption>
+                    
+                        <tbody id="buyAuctionInfoTableBody">
+                            <tr>
+                                <td class="leftCol">Nome articolo</td>
+                                <td id="buyAuctionInfoTableBodyNomeArt">prova articolo</td>
+                            </tr>
+                            <tr>
+                                <td class="leftCol">Descrizione articolo</td>
+                                <td id="buyAuctionInfoTableBodyDescription">prova Descrizione articolo</td>
+                            </tr>
+                            <tr>
+                                <td class="leftCol">Base d'asta</td>
+                                <td id="buyAuctionInfoTableBodyStartingPrice">22</td>
+                            </tr>
+                            <tr>
+                                <td class="leftCol">Rialzo minimo</td>
+                                <td id="buyAuctionInfoTableBodyMinimumRaise">1</td>
+                            </tr>
+                            <tr>
+                                <td class="leftCol">Data Scadenza asta</td>
+                                <td id="buyAuctionInfoTableBodyExpDate">21 02 15</td>
+                            </tr>
+                        </tbody>
+                        <img id="infoAuctionImg" width="300" src="" />
+                    </table>
+                </div>
+                <div id="buyAuctionBids">
+                    <p id="noBuyAuctionBids"></p>
+                    <table id="buyAuctionBidsTable" class="buyTable">
+                        <caption>Offerte asta</caption>
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Valore Offerta</th>
+                                <th>Data offerta</th>
+                            </tr>
+                        </thead>
+                        <tbody id="buyAuctionsBidsBody">
+                        </tbody>
+                    </table>
+                </div>
+
+                <p id="makeBidAlert" class="alert"></p>
+
+                <form id="makeBidForm" action="#" method="post">
+                    <fieldset>
+                        <legend> Fai la tua offerta </legend>
+                        <div class="formitem">
+                            <label for="bid">Valore: </label>
+                            <input id="makeBidFormInput" type="number" name="value" min="0" step="0.5" required> <br>
+                        </div>
+
+                        <input id="makeBidFormCodArt" type="hidden" name="codArt">
+                        <button class="submit" type="submit" name="submit">Fai offerta</button>
+                    </fieldset>
+                </form>
+            </div>
+
+        </div>
+
+        <p id="wonAuctionsAlert" class="alert"></p>
+        <div id="wonAuctions" class="wonAuctions bottomDiv"">
+            <h3>Aste vinte</h3>
+            <div id="wonAuctionsTable">
+                <table class="buyTable">
+                    <thead>
+                        <tr>
+                            <th>Nome Articolo</th>
+                            <th>Offerta massima</th>
+                            <th>Scaduta in data</th>
+                        </tr>
+                    </thead>
+                    <tbody id="wonAuctionsBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="sell" class="center sellDiv sell">
+        <h2>Vendo</h2>
+        <div class="sellLists">
+            <div id="openAuctionListContainer">
+                <p id="sellOpenAuctionsListAlert" class="alert"></p>
+                <table id="openAuctionListTable" class="sellTable">
+                    <caption>Le tue aste aperte</caption>
+
+                    <thead>
+                        <tr>
+                            <th>Id Asta</th>
+                            <th>Nome Articolo</th>
+                            <th>Offerta massima</th>
+                            <th>giorni rimanenti</th>
+                            <th>ore rimanenti</th>
+                            <th>minuti rimanenti</th>
+                            <th>Scadenza</th>
+                        </tr>
+                    </thead>
+                    <tbody id="openAuctionListBody">
+                    </tbody>
+                </table>
+            </div>
+            <div id="closedAuctionListContainer">
+                <p id="sellClosedAuctionsListAlert" class="alert"></p>
+
+                <table id="closedAuctionListTable" class="sellTable">
+                    <caption>Le tue aste chiuse</caption>
+
+                    <thead>
+                        <tr>
+                            <th>Id Asta</th>
+                            <th>Nome Articolo</th>
+                            <th>Offerta massima</th>
+                            <th>giorni passati</th>
+                            <th>ore passate</th>
+                            <th>minuti passati</th>
+                            <th>Scaduta il</th>
+                        </tr>
+                    </thead>
+                    <tbody id="closedAuctionListBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="sellAuctionInfo" class="sellAuctionInfo">
+            <div id="sellInfo">
+                <p id="sellAuctionInfoAlert" class="alert"></p>
+                <table id="sellAuctionInfoTable" class="dettagliAsta">
+                                 <caption>Dettagli asta</caption>
+                
+                    <tbody>
+                        <tr>
+                            <td class="leftCol">Nome articolo</td>
+                            <td id="sellAuctionInfoTableBodyNomeArt">prova articolo</td>
+                        </tr>
+                        <tr>
+                            <td class="leftCol">Descrizione articolo</td>
+                            <td id="sellAuctionInfoTableBodyDescription">prova Descrizione articolo</td>
+                        </tr>
+                        <tr>
+                            <td class="leftCol">Base d'asta</td>
+                            <td id="sellAuctionInfoTableBodyStartingPrice">22</td>
+                        </tr>
+                        <tr>
+                            <td class="leftCol">Rialzo minimo</td>
+                            <td id="sellAuctionInfoTableBodyMinimumRaise">1</td>
+                        </tr>
+                        <tr>
+                            <td class="leftCol">Data Scadenza asta</td>
+                            <td id="sellAuctionInfoTableBodyExpDate">21 02 15</td>
+                        </tr>
+                    </tbody>
+                </table>
+                    <img id="sellAuctionInfoImg" width="300" src="" />
+            </div>
+            <div id="sellAuctionBidsContainer">
+                <p id="sellAuctionBidsAlert" class="alert"></p>
+                <table id="sellAuctionBidsTable">
+                 <caption>Offerte asta</caption>
+                
+                    <thead>
+                        <tr>
+                            <th>username</th>
+                            <th>valoreofferta</th>
+                            <th>data e ora offerta</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sellAuctionBidsBody">
+                        <tr>
+                            <td>Giangiovanni</td>
+                            <td>22</td>
+                            <td>Sat 12 Jul 21:12 CEST 2021</td>
+                        </tr>
+                    </tbody>
+                    </table>
+            </div>
+            <div id="closeAuctionFormContainer">
+                <p id="closeAuctionInfoAlert" class="alert"></p>
+                <form id="closeAuctionForm" method="post">
+                    <input id="closeAuctionInput" type="hidden" name="codArt">
+                    <button class="chiudi" type="submit" name="submit" >CHIUDI</button>
+                </form>
+            </div>
+            <div id="winnerAuctionInfoContainer">
+                <p id="winnerAuctionInfoAlert" class="alert"></p>
+                <table id="winnerAuctionInfoTable">
+                    <caption>Vincitore asta</caption>
+                    <tr>
+                        <td class="leftCol">Nome utente </td>
+                        <td id="usernameWinner">Giangiovanni</td>
+                    </tr>
+                    <tr>
+                        <td class="leftCol">Dati spedizione </td>
+                        <td id="spedInfoWinner">Roma, via del Corso 22</td>
+                    </tr>
+                    <tr>
+                        <td class="leftCol">Offerta vincente </td>
+                        <td id="winnerBid">190</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="createAuctionContainer" class="bottomDiv">
+			<p>Crea una nuova asta</p>
+			<p id="createAuctionAlert" class="alert"></p>
+            <form id="createAuctionWizard">
+                <fieldset>
+                    <div class="formitem">
+                        <label for="name">Nome articolo:</label>
+                        <input type="text" name="name" required> <br>
+                    </div>
+                    <div class="formitem">
+                        <label for="description">Descrizione:</label>
+                        <input type="text" name="description" required> <br>
+                    </div>
+                    <input class="next" type="button" name="1-next" value="next">
+                </fieldset>
+                <fieldset>
+                    <div class="formitem">
+                        <label for="image">Scegli immagine:</label>
+                        <input type=file name="image" accept="image/*" required> <br>
+                    </div>
+                    <input class="prev" type="button" name="1-prev" value="prev">
+                    <input class="next" type="button" name="2-next" value="next">
+                        
+                </fieldset>
+                <fieldset>
+                    <div class="formitem">
+                            <label for="startingprice">Prezzo iniziale:</label>
+                            <input type="number" name="startingprice" value="0" min="0" step="0.5" required> <br>
+                        </div>
+        
+                        <div class="formitem">
+        
+                            <label for="minimumraise">Rialzo minimo:</label>
+                            <input type="number" name="minimumraise" value="0.5" min="0.5" step="0.5" required> <br>
+                        </div>
+                        <input class="prev" type="button" name="2-prev" value="prev">
+                        <input class="next" type="button" name="3-next" value="next">
+                        
+                </fieldset>
+                <fieldset>
+                        <div class="formitem">
+                            <label for="expirationdate">Data chiusura:</label>
+                            <input type="datetime-local" name="expirationdate" min="2021-07-14T17:20:00" required> <br>
+                        </div>
+
+                        <input class="prev" type="button" name="3-prev" value="prev">
+                        <input class="cancel" type="button" name="cancel" value="cancel">
+                        <input class="submit" type="button" name="submit" value="Crea Asta">
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <div id="rightBanner" class="rightBanner buy">
+        <p class="comproBanner">acquisto</p>
+    </div>
+
+</body>
+
+	<a href="LogOut" class="logoutjs">Logout</a>
+
+</html>

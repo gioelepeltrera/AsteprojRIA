@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>AsteProj login</title>
+    <script src="LoginManagement.js" charset="utf-8" defer></script>
+    <script src="LogInSignUpSwitcher.js" charset="utf-8" defer></script>
+    <script src="SignUpManagement.js" charset="utf-8" defer></script>
+    <script src="utils.js" charset="utf-8" defer></script>
+    <link rel="stylesheet" type="text/css" media="all" href="css/mystyleT.css">
+</head>
+
+<body class="buy">
+    <h1>Benvenuto ad AsteProj!</h1>
+
+    <div id="errorMessage" class="alert"></div>
+
+    <form id ="login" class="sign" action="#" >
+        <fieldset>
+            <legend>LogIn</legend>
+            <div class="formitem">
+                <label for="username">username: </label>
+                <input type="text" name="username" required> <br>
+            </div>
+            <div class="formitem">
+                <label for="pwd">password: </label>
+                <input type="password" name="pwd" required> <br>
+            </div>
+            <input id="loginButton" class="submit" type="button" value="login">
+        </fieldset>
+    </form>
+
+    <form id="signup" class="sign" action="#" style="display: none;" >
+        <fieldset>
+            <legend>SignUp</legend>
+            <div class="formitem">
+                <label for="username">username: </label>
+                <input type="text" name="username" required> <br>
+            </div>
+            <div class="formitem">
+                <label for="pwd">password: </label>
+                <input type="password" name="pwd" required> <br>
+            </div>
+            <div class="formitem">
+                <label for="addr">dati Spedizione: </label>
+                <input type="text" name="addr" required><br>
+            </div>
+            <input id="signUpButton" class="submit" type="button" value="SignUp">
+        </fieldset>
+    </form>
+    <div class="logLink" value="Se non sei ancora iscritto">
+        <div id="logMessage" >Se non sei ancora iscritto </div>
+        <input id="loginSignupSwitch"  type="button" value="SignUp" class="signup"></input>
+    </div>
+	
+</body>
+
+</html>
